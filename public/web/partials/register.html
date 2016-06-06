@@ -1,0 +1,48 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div class="page-header">
+                <h1 id="title">
+                    <strong><small>Sign</small></strong>Up
+                </h1>
+            </div>
+            <form role="form" name="regForm">
+                <div class="form-group">
+                    <p>First Name:
+                        <input name="fname" ng-model="fname" required>
+                        <span ng-show="regForm.fname.$touched && regForm.fname.$invalid">First Name is required.</span>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>Last Name:
+                        <input name="lname" ng-model="lname" required>
+                        <span ng-show="regForm.lname.$touched && regForm.lname.$invalid">Last Name is required.</span>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>Username:
+                        <input name="uname" ng-model="uname" required>
+                        <span ng-show="regForm.uname.$touched && regForm.uname.$invalid">Username is required.</span>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>Password:
+                        <input name="password" ng-model="password" required type="password">
+                        <span ng-show="regForm.password.$touched && regForm.password.$invalid">Password is required.</span>
+                    </p>
+                </div>
+                <button data-ng-click="registerClick()" class="btn btn-danger ">Register</button>
+            </form>
+            <div class="checkbox">
+                <label>Already had account?
+                    <a href="#/">Login</a>
+                </label>
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>

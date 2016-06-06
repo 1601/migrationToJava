@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <h3 class="text-center text-success" id="title">
+               <strong>User</strong>list<br>
+            </h3>
+            <input type="text" ng-model="user.search" class="search-query text-center center-block" placeholder="Search">
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" ng-repeat="obj in users | filter:user.search | orderBy:'uname'">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        {{obj.uname}}
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    {{obj.fname + " " +obj.lname}}
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-default">
+                        Edit
+                    </button>
+                    <button type="button" data-ng-click="removve(obj.uname)" class="btn btn-danger">
+                        Remove
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

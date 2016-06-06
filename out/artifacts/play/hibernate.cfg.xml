@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+
+    <!--<property name="connection.url"/>
+    <property name="connection.driver_class"/>
+    <property name="connection.username"/>
+    <property name="connection.password"/>-->
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+
+    <!-- Database connection settings -->
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">1234</property>
+
+    <!--<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>-->
+
+    <property name="hibernate.default_schema">TEST</property>
+
+    <!-- JDBC connection pool (use the built-in) -->
+    <property name="hibernate.connection.pool_size">1</property>
+
+    <!-- SQL dialect -->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+    <!-- Enable Hibernate's automatic session context management -->
+    <property name="hibernate.current_session_context_class">thread</property>
+
+    <!-- Disable the second-level cache  -->
+    <!--<property name="test.cache.provider_class">org.test.cache.NoCacheProvider</property>-->
+
+    <!-- Echo all executed SQL to stdout -->
+    <property name="hibernate.show_sql">false</property>
+
+    <!--<property name="hbm2ddl.auto">validate</property>-->
+
+    <mapping resource="user.hbm.xml"/>
+
+  </session-factory>
+</hibernate-configuration>

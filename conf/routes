@@ -1,0 +1,10 @@
+GET     /                           controllers.HomeController.index
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+# TEST ENVIRONMENT
+POST   /submit                      controllers.MyController.submit
+GET    /try                         controllers.MyController.sayHello
+
+#User Controllers
+POST   /user/register               controllers.UserController.registerUser
+POST   /user/login                  controllers.UserController.loginUser

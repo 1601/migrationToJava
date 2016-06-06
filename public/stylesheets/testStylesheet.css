@@ -1,0 +1,64 @@
+html, body {
+    height: 100%;
+    width: 100vh;
+    margin: 0;
+    overflow: hidden /*Disable scroll */
+}
+.page {
+    height: 100vh;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    position: absolute;
+    top:0;
+    bottom: 0;
+}
+
+.home-page      { background:#00D0BC; color:#00907c; }
+.userlist-page  { background:#E59400; color:#a55400; }
+.register-page  { background:#ffa6bb; color:#9e0000; }
+.login-page     { background:#2c3e50; color:#95a5a6; }
+
+
+.page-header.h1{
+    font-family: 'Satisfy', serif;
+    font-weight: 400;
+    font-size: 40%;
+}
+
+
+.ng-enter           { animation: slideInRight 0.5s both ease-in; z-index: 8888; }
+.ng-leave           { animation: slideOutLeft 0.3s both ease-in; z-index: 9999; }
+
+.ng-enter       { z-index: 8888; }
+.ng-leave       { z-index: 9999; }
+
+#title{
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 8vh;
+    color: #fff;
+}
+
+#logoImage{
+    width: 15vh;
+}
+
+
+/* page specific animations ------------------------ */
+
+/*!* login -------------------------- *!*/
+/*.login-page.ng-enter         { animation: scaleUp 0.5s both ease-in; }*/
+/*.login-page.ng-leave         { transform-origin: 0% 0%; animation: rotateFall 1s both ease-in; }*/
+
+/*!* home ------------------------ *!*/
+/*.home-page.ng-enter        { animation:slideInRight 0.5s both ease-in; }*/
+/*.home-page.ng-leave        { animation:slideOutLeft 0.5s both ease-in; }*/
+
+/*!* register ---------------------- *!*/
+/*.register-page.ng-leave      { transform-origin: 50% 50%; animation: rotateOutNewspaper .5s both ease-in; }*/
+/*.register-page.ng-enter      { animation:slideInUp 0.5s both ease-in; }*/
+
+/*!* userlist -------------------------- *!*/
+/*.userlist-page.ng-enter         { animation: scaleUp 0.5s both ease-in; }*/
+/*.userlist-page.ng-leave         { transform-origin: 0% 0%; animation: rotateFall 1s both ease-in; }*/

@@ -1,0 +1,171 @@
+<!--<div class="panel panel-default">-->
+    <!--&lt;!&ndash; Default panel contents &ndash;&gt;-->
+    <!--<div class="panel-heading">{{home.message}}</div>-->
+    <!--<div class="panel-body">-->
+        <!--<p>Users</p> <button data-ng-click="adddd()" class="btn btn-info">ADDDD</button>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash; List group &ndash;&gt;-->
+    <!--<ul class="list-group">-->
+        <!--<li ng-repeat="obj in users" class="list-group-item">{{obj.fname+" "+obj.lname }}</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <div class="page-header">
+                        <h1 id="title">
+                            Hi <strong><small>{{currentUser.uname}}</small></strong>
+                            <a href="" data-toggle="modal" data-target="#modal-container-257123" id="modal-257123">
+                                <button type="button" class="btn btn-info btn-sm pull-right">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                </button>
+                            </a>
+                            <h5 class="text-right"><a href="#/">Logout</a></h5>
+
+                        </h1>
+                        <!--<img alt="Bootstrap Image Preview" class="img-responsive pull-right" id="logoImage" src="content/telephone-with-glasses-and-moustache copy.png" />-->
+                        <!--<a href="" data-toggle="modal" data-target="#modal-container-257123" id="modal-257123">MODAL</a>-->
+                        <!--<a id="modal-257123" href="" role="button" class="btn" data-toggle="modal">Launch demo modal</a>-->
+                        <div class="modal fade" id="modal-container-257123" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                            ×
+                                        </button>
+                                        <h4 class="modal-title" id="myModalLabel">
+                                            User Details
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form role="form" name="editForm">
+                                            <div class="form-group">
+                                                <p>First Name:
+                                                    <input name="fname" ng-model="fname" required>
+                                                    <span ng-show="editForm.fname.$touched && editForm.fname.$invalid">First Name is required.</span>
+                                                </p>
+                                            </div>
+                                            <div class="form-group">
+                                                <p>Last Name:
+                                                    <input name="lname" ng-model="lname" required>
+                                                    <span ng-show="editForm.lname.$touched && editForm.lname.$invalid">Last Name is required.</span>
+                                                </p>
+                                            </div>
+                                            <div class="form-group">
+                                                <p>Username:
+                                                    <input name="uname" ng-model="uname" required>
+                                                    <span ng-show="editForm.uname.$touched && editForm.uname.$invalid">Username is required.</span>
+                                                </p>
+                                            </div>
+                                            <div class="form-group">
+                                                <p>Password:
+                                                    <input name="password" ng-model="password" required type="password">
+                                                    <span ng-show="editForm.password.$touched && editForm.password.$invalid">Username is required.</span>
+                                                </p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                                            Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">
+                                            Save changes
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <h3 class="text-center">Registered Users:
+                        <a href="#/userlist">
+                            <button type="button" class="btn btn-default btn-sm pull-right">
+                                <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                            </button>
+                        </a>
+                    </h3>
+
+                    <div class="panel-group" id="accordion" ng-repeat="obj in users">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" >
+                                <h4 class="panel-title">
+                                    <a href="javascript:;" data-toggle="collapse" data-parent="#accordion" data-target="#{{obj.uname}}" aria-expanded="false">
+                                        {{obj.uname}}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="{{obj.uname}}" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    {{obj.fname + " " +obj.lname}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--<div class="container-fluid">-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-6">-->
+            <!--<a id="modal-257123" href="#modal-container-257123" role="button" class="btn" data-toggle="modal">Launch demo modal</a>-->
+
+            <!--<div class="modal fade" id="modal-container-257123" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+                <!--<div class="modal-dialog">-->
+                    <!--<div class="modal-content">-->
+                        <!--<div class="modal-header">-->
+
+                            <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">-->
+                                <!--×-->
+                            <!--</button>-->
+                            <!--<h4 class="modal-title" id="myModalLabel">-->
+                                <!--Modal title-->
+                            <!--</h4>-->
+                        <!--</div>-->
+                        <!--<div class="modal-body">-->
+                            <!--...-->
+                        <!--</div>-->
+                        <!--<div class="modal-footer">-->
+
+                            <!--<button type="button" class="btn btn-default" data-dismiss="modal">-->
+                                <!--Close-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-primary">-->
+                                <!--Save changes-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--<div class="col-md-6">-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

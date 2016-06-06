@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Server</title>
+    <script type="text/javascript" src="assets/javascripts/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+    <h1>Sample Server</h1>
+    <form>
+        <input type="text" id="fname">
+        <input type="text" id="lname">
+        <input type="text" id="uname">
+        <input type="password" id="password">
+        <input type="submit" onclick="testSubmit()">
+    </form>
+    <input type="button" onclick="testSubmit()">
+</body>
+
+<script>
+    BASE_URL = "http://localhost:9000/";
+    function testSubmit(){
+        var data = {
+            fname : $("#fname").val(),
+            lname : $("#lname").val(),
+            uname : $("#uname").val(),
+            password : $("#password").val()
+        };
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:9000/submit",
+            dataType : 'json',
+            contentType : 'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            success: function(r){
+                console.log(r);
+            }
+        });
+        return false;
+    }
+
+</script>
+
+</html>
