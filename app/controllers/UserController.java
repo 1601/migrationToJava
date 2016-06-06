@@ -48,12 +48,18 @@ public class UserController extends Controller{
         return ok(result);
     }
 
-//    public Result deactivateUser(){
-//        JsonNode json = request().body().asJson();
-//        ObjectNode result = Json.newObject();
-//        result.put("result", DBUser.deactivateUser(json.get("id").intValue()));
-//        return ok(result);
-//    }
+    public Result deactivateUser(){
+        JsonNode json = request().body().asJson();
+        ObjectNode result = Json.newObject();
+        result.put("result", DBUser.deactivateUser(json.get("id").intValue()));
+        return ok(result);
+    }
+
+    public Result getUser(){
+        JsonNode json = request().body().asJson();
+        User user = DBUser.getUser(json.get("id").intValue());
+        return ok(Json.toJson(user));
+    }
 
     public Result editUser(){
         JsonNode json = request().body().asJson();

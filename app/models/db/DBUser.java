@@ -69,7 +69,7 @@ public class DBUser {
     }
 
     //GET_USER (INT ID) RET USER OBJECT
-    public User getUser(int id) {
+    public static User getUser(int id) {
         Session session = HibernateUtilities.getSessionFactory().openSession();
         session.beginTransaction();
         User user= (User) session.load(User.class, new Integer(id));
