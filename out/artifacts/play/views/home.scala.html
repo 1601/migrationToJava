@@ -8,10 +8,8 @@
 <body>
     <h1>Sample Server</h1>
     <form>
-        <input type="text" id="fname">
-        <input type="text" id="lname">
-        <input type="text" id="uname">
-        <input type="password" id="password">
+        <input type="text" name="fname" id="fname">
+        <input type="text" name="lname" id="lname">
         <input type="submit" onclick="testSubmit()">
     </form>
     <input type="button" onclick="testSubmit()">
@@ -22,9 +20,7 @@
     function testSubmit(){
         var data = {
             fname : $("#fname").val(),
-            lname : $("#lname").val(),
-            uname : $("#uname").val(),
-            password : $("#password").val()
+            lname : $("#lname").val()
         };
         $.ajax({
             type: "POST",

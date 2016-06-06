@@ -10,6 +10,7 @@ import play.mvc.*;
 import play.mvc.Result;
 
 import java.util.Date;
+import java.util.List;
 
 
 public class UserController extends Controller{
@@ -33,11 +34,11 @@ public class UserController extends Controller{
     }
 
     public Result listUsers() {
-        //JsonNode json = request().body().asJson();
+        List<User> users = DBUser.listUsers();
+        JsonNode json = Json.toJson(users);
         ObjectNode result = Json.newObject();
-        result.put("result", Json.toJson(DBUser.listUsers()));
-       // JsonNode jsonForResult = Json.toJson(DBUser.listUsers());
-       // System.out.println(json.toString());
+        result.put("result",json.toString());
+        System.out.println(result);
         return ok(result);
     }
 
