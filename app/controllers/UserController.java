@@ -55,4 +55,17 @@ public class UserController extends Controller{
         return ok(result);
     }
 
+//    public Result editUser(){
+//        JsonNode json = request().body().asJson();
+//
+//        User u = Json.fromJson(json, User.class);
+//        u.setLastLogin(new Date());
+//        u.setIsActive(ProjectConstants.ACTIVE);
+//
+//        ObjectNode result = Json.newObject();
+//        int res = DBUser.insert(u);
+//        result.put("result", res);
+//        return ok(result);
+//    }
+
 }

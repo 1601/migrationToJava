@@ -8,3 +8,4 @@ GET    /try                         controllers.MyController.sayHello
 #User Controllers
 POST   /user/register               controllers.UserController.registerUser
 POST   /user/login                  controllers.UserController.loginUser
+POST   /user/deactivate             controllers.UserController.deactivateUser
