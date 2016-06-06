@@ -12,13 +12,10 @@ var BASEURL_SERVER = "http://localhost:9000/";
         function init() {
             $scope.users = usersFactory.getUsers();
         }
+
         $scope.loginClick = function loginMethod(){
             if(searchUser($scope.userNameInput, $scope.passwordInput)) {
-<<<<<<< HEAD
                 var message = '<strong> Success!</strong>  Logging In.';
-=======
-                var message = '<strong> Success !</strong>  Logging in`.';
->>>>>>> origin/master
                 var id = Flash.create('success', message, 1000, {class: 'custom-class', id: 'custom-id'}, true);
                 setTimeout(function () {
                     window.location.href = "#/home:" + $scope.userNameInput;
@@ -72,14 +69,15 @@ var BASEURL_SERVER = "http://localhost:9000/";
                 console.log($scope.users);
                 $scope.currentUser = getUser(currentUname);
                 console.log( $scope.currentUser);
+                $scope.uname = $scope.currentUser.uname;
+                $scope.lname = $scope.currentUser.lname;
+                $scope.fname = $scope.currentUser.fname;
+                $scope.password = $scope.currentUser.password;
             }, function errorCallback(response) {
                 console.log("Error in GET Users");
             });
            // $scope.users = usersFactory.getUsers();
-            $scope.uname = $scope.currentUser.uname;
-            $scope.lname = $scope.currentUser.lname;
-            $scope.fname = $scope.currentUser.fname;
-            $scope.password = $scope.currentUser.password;
+
         }
       //  console.log($scope.users);
         var self = this;

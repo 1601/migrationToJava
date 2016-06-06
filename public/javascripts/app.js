@@ -35,20 +35,20 @@ var testapp = angular.module('test', ['ngRoute','ngAnimate',"ngFlash"])
 testapp.factory('usersFactory',function ($http) {
   var factory = {};
     var users= [];
-    
-    // $http({
-    //     method: 'GET',
-    //     url: BASEURL_SERVER  + "user/home"
-    // }).then(function successCallback(response) {
-    //     console.log("obelieve success");
-    //     console.log(response.data.result);
-    //     console.log(response.data);
-    //     console.log(response);
-    //     users = JSON.parse(response.data.result);
-    //     console.log(users);
-    // }, function errorCallback(response) {
-    //     console.log("gonna try again");
-    // });
+
+    $http({
+        method: 'GET',
+        url: BASEURL_SERVER  + "user/home"
+    }).then(function successCallback(response) {
+        console.log("obelieve success");
+        console.log(response.data.result);
+        console.log(response.data);
+        console.log(response);
+        users = JSON.parse(response.data.result);
+        console.log(users);
+    }, function errorCallback(response) {
+        console.log("gonna try again");
+    });
 
     factory.getUser = function (uname) {
         for (var i = 0; i < users.length; i++) {
