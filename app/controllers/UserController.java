@@ -49,4 +49,29 @@ public class UserController extends Controller{
         return ok(result);
     }
 
+    public Result deactivateUser(){
+        JsonNode json = request().body().asJson();
+        ObjectNode result = Json.newObject();
+        result.put("result", DBUser.deactivateUser(json.get("id").intValue()));
+        return ok(result);
+    }
+
+    public Result getUser(){
+        JsonNode json = request().body().asJson();
+        User user = DBUser.getUser(json.get("id").intValue());
+        return ok(Json.toJson(user));
+    }
+
+    public Result editUser(){
+        JsonNode json = request().body().asJson();
+
+        User u = Json.fromJson(json, User.class);
+        u.setLastLogin(new Date());
+        u.setIsActive(ProjectConstants.ACTIVE);
+
+        ObjectNode result = Json.newObject();
+        int res = DBUser.insert(u);
+        result.put("result", res);
+        return ok(result);
+    }
 }
