@@ -51,6 +51,7 @@ public class DBUser {
         return result.size() != 0;
     }
 
+
     //EDIT USER (USER OBJECT) RET BOOLEAN
     public static int editUser(User user) {
         Session session = HibernateUtilities.getSessionFactory().openSession();
@@ -138,7 +139,6 @@ public class DBUser {
         System.out.println("Insert: " + insert(user));
 
 
-
         List<User> users = listUsers();
 //        for(User u : users){
 //            System.out.println(u.getFname());
@@ -148,7 +148,6 @@ public class DBUser {
 //        System.out.println(login("manrick.capotolan", "12334"));
 
 
-
-        System.out.println("Login: " + login("black","1234"));
+        System.out.println("Login: " + login("black", "1234"));
     }
 }
