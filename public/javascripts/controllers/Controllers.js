@@ -14,7 +14,11 @@ var BASEURL_SERVER = "http://localhost:9000/";
         }
         $scope.loginClick = function loginMethod(){
             if(searchUser($scope.userNameInput, $scope.passwordInput)) {
+<<<<<<< HEAD
+                var message = '<strong> Success!</strong>  Logging In.';
+=======
                 var message = '<strong> Success !</strong>  Logging in`.';
+>>>>>>> origin/master
                 var id = Flash.create('success', message, 1000, {class: 'custom-class', id: 'custom-id'}, true);
                 setTimeout(function () {
                     window.location.href = "#/home:" + $scope.userNameInput;
@@ -44,22 +48,9 @@ var BASEURL_SERVER = "http://localhost:9000/";
             return bool;
         }
 
-        function successFLASH () {
-            console.log("in the flash zone speedforce");
-            var message = '<strong> Well done!</strong>  You successfully read this important alert message.';
-            var id = Flash.create('success', message, 1000, {class: 'custom-class', id: 'custom-id'}, true);
-            // First argument (string) is the type of the flash alert.
-            // Second argument (string) is the message displays in the flash alert (HTML is ok).
-            // Third argument (number, optional) is the duration of showing the flash. 0 to not automatically hide flash (user needs to click the cross on top-right corner).
-            // Fourth argument (object, optional) is the custom class and id to be added for the flash message created.
-            // Fifth argument (boolean, optional) is the visibility of close button for this flash.
-            // Returns the unique id of flash message that can be used to call Flash.dismiss(id); to dismiss the flash message.
-            return 0;
-        }
-
     });
 
-    testapp.controller('HomeController', function($scope, $routeParams, usersFactory) {
+    testapp.controller('HomeController', function($scope, $routeParams, $http, usersFactory) {
         $scope.pageName = 'home-page';
         $scope.currentUser={};
         $scope.uname = "";
@@ -69,9 +60,22 @@ var BASEURL_SERVER = "http://localhost:9000/";
         $scope.users = [];
         init();
         function init() {
+
             var currentUname = $routeParams.uname.substr(1,$routeParams.uname.length);
-            $scope.currentUser = usersFactory.getUser(currentUname);
-            $scope.users = usersFactory.getUsers();
+            $http({
+                method: 'GET',
+                async : false,
+                url: BASEURL_SERVER  + "user/home"
+            }).then(function successCallback(response) {
+                console.log("Got All Users");
+                $scope.users = JSON.parse(response.data.result);
+                console.log($scope.users);
+                $scope.currentUser = getUser(currentUname);
+                console.log( $scope.currentUser);
+            }, function errorCallback(response) {
+                console.log("Error in GET Users");
+            });
+           // $scope.users = usersFactory.getUsers();
             $scope.uname = $scope.currentUser.uname;
             $scope.lname = $scope.currentUser.lname;
             $scope.fname = $scope.currentUser.fname;
@@ -84,6 +88,17 @@ var BASEURL_SERVER = "http://localhost:9000/";
             usersFactory.addAUser("Somebody","Some","body","password");
             alert("Adddd Success!");
         }
+
+        function getUser(uname) {
+            console.log("indeisde GetUser"+ $scope.users.length);
+            for (var i = 0; i < $scope.users.length; i++) {
+                if ($scope.users[i].uname === uname) {
+                    console.log($scope.users);
+                    return $scope.users[i];
+                }
+            }
+            return null;
+        };
     });
 
     testapp.controller('RegisterController', function($scope,usersFactory) {
